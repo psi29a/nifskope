@@ -6,7 +6,7 @@ language: cpp
 addons:
   apt:
     sources:
-      - qt551
+      - sourceline: 'ppa:beineri/opt-qt551-trusty'
       - ubuntu-toolchain-r-test
     packages: [
       # static analysis
