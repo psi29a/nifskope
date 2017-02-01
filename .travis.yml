@@ -6,6 +6,7 @@ language: cpp
 addons:
   apt:
     sources:
+      - qt551
       - ubuntu-toolchain-r-test
     packages: [
       # static analysis
