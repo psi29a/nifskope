@@ -8,8 +8,8 @@ addons:
     sources:
     - ubuntu-toolchain-r-test
     - debian-sid
-    packages:
-    - qt5-qmake
+    packages: [ qt5-qmake, qt5-default, qtbase5-dev ]
+    
 
 matrix:
   fast_finish: true
