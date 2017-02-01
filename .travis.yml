@@ -20,7 +20,9 @@ matrix:
       python: nightly
 
 script:
+  - qmake --version
   - qmake -makefile NifSkope.pro
+  - make -j4
 
 notifications:
     email: false
