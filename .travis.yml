@@ -1,7 +1,15 @@
 dist: trusty
 osx_image: xcode8.2
-sudo: false
+sudo: required
 language: cpp
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    - debian-sid
+    packages:
+    - qt5-qmake
 
 matrix:
   fast_finish: true
@@ -18,6 +26,9 @@ matrix:
       python: nightly
     - os: osx
       python: nightly
+
+before_install:
+  - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then sudo apt purge qt4-qmake libqt4-dev; fi
 
 script:
   - qmake --version
