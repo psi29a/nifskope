@@ -24,11 +24,11 @@ install:
 
 build_script:
     - git submodule update --init --recursive # Appveyor doesn't clone recursively.
-    - qmake -Wall -d -spec win32-msvc2015 -tp vc NifSkope.pro -Wall
+    - qmake -Wall -spec win32-msvc2015 -tp vc NifSkope.pro -Wall
     - if %PLATFORM%==Win32 set build=Build_32
     - if %PLATFORM%==x64 set build=Build_64
     - dir C:\projects\nifskope
-    - msbuild %build%\NifSkope.sln /t:Build /p:Configuration=%configuration% /m:2 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+    - msbuild %build%\NifSkope.vcxproj /t:Build /p:Configuration=%configuration% /m:2 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
 after_build:
     - if %PLATFORM%==Win32 7z a nifskope_x32.zip %APPVEYOR_BUILD_FOLDER%\Build_32\Debug\nifskope*
