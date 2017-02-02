@@ -23,13 +23,14 @@ install:
     - set PATH=%PATH%;%QTDIR%\bin;
 
 build_script:
-    - cmd: qmake -spec win32-msvc2015 -tp vc NifSkope.pro
-    - cmd: if %PLATFORM%==Win32 set build=Build_32
-    - cmd: if %PLATFORM%==x64 set build=Build_64
+    - git submodule update --init --recursive # Appveyor doesn't clone recursively.
+    - qmake -spec win32-msvc2015 -tp vc NifSkope.pro
+    - if %PLATFORM%==Win32 set build=Build_32
+    - if %PLATFORM%==x64 set build=Build_64
 
 after_build:
-    - cmd: if %PLATFORM%==Win32 7z a nifskope_x32.zip %APPVEYOR_BUILD_FOLDER%\Build_32\Debug\nifskope*
-    - cmd: if %PLATFORM%==x64 7z a nifskope_x64.zip %APPVEYOR_BUILD_FOLDER%\Build_64\Debug\nifskope*
+    - if %PLATFORM%==Win32 7z a nifskope_x32.zip %APPVEYOR_BUILD_FOLDER%\Build_32\Debug\nifskope*
+    - if %PLATFORM%==x64 7z a nifskope_x64.zip %APPVEYOR_BUILD_FOLDER%\Build_64\Debug\nifskope*
 
 test: off
 
