@@ -27,6 +27,7 @@ build_script:
     - qmake -spec win32-msvc2015 -tp vc NifSkope.pro
     - if %PLATFORM%==Win32 set build=Build_32
     - if %PLATFORM%==x64 set build=Build_64
+    - dir C:\projects\nifskope
     - msbuild %build%\NifSkope.sln /t:Build /p:Configuration=%configuration% /m:2 /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 
 after_build:
