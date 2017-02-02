@@ -39,6 +39,12 @@ after_build:
 test: off
 
 artifacts:
-    - path: %BUILD_NAME%
-      name: %BUILD_NAME%
+    - path: nifskope_win32.zip
+      name: nifskope_win32
+    - path: nifskope_x64.zip
+      name: nifskope_x64
+    - path: nifskope_win32_debug.zip
+      name: nifskope_win32_debug
+    - path: nifskope_x64_debug.zip
+      name: nifskope_x64_debug
 
