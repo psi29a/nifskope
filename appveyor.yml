@@ -24,7 +24,7 @@ install:
 
 build_script:
     - git submodule update --init --recursive # Appveyor doesn't clone recursively.
-    - qmake -spec win32-msvc2015 -tp vc NifSkope.pro
+    - qmake -Wall -d -spec win32-msvc2015 -tp vc NifSkope.pro -Wall
     - if %PLATFORM%==Win32 set build=Build_32
     - if %PLATFORM%==x64 set build=Build_64
     - dir C:\projects\nifskope
