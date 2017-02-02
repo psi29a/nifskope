@@ -34,7 +34,7 @@ after_build:
     - set BUILD_DIR=%APPVEYOR_BUILD_FOLDER%\bin\%CONFIGURATION%
     - set BUILD_NAME=nifskope_%platform%%DEBUG_POSTFIX%.zip
     - 7z a %BUILD_NAME% %BUILD_DIR%
-    - 7z rn %BUILD_NAME% %BUILD_DIR% %CONFIGURATION% NifSkope
+    - 7z rn %BUILD_NAME% %CONFIGURATION% NifSkope
 
 test: off
 
