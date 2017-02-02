@@ -31,7 +31,7 @@ build_script:
 
 after_build:
     - if %CONFIGURATION%==debug set DEBUG_POSTFIX=_debug
-    - set BUILD_DIR=%APPVEYOR_BUILD_FOLDER%\nifskope\bin\%CONFIGURATION%
+    - set BUILD_DIR=%APPVEYOR_BUILD_FOLDER%\bin\%CONFIGURATION%
     - if %PLATFORM%==Win32 7z a nifskope_x32%DEBUG_POSTFIX%.zip %BUILD_DIR%\*
     - if %PLATFORM%==x64 7z a nifskope_x64%DEBUG_POSTFIX%.zip %BUILD_DIR%\*
 
